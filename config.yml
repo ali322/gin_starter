@@ -1,0 +1,9 @@
+app:
+  port: 2025
+  locale: zh
+  logDir: log
+  jwtSecret: n5LXiLeQ0UqaVwOSySIARzraSebDviRL1nLrNCWG1HM
+  groupAdminRole: 2
+  defaultRole: 3
+  dsn: "user=root password=yaxinaid dbname=starter host=localhost port=5432 sslmode=disable TimeZone=Asia/Shanghai"
+  # dsn: root:yaxinaid@tcp(localhost:3306)/bar?charset=charset=utf8mb4,utf8&parseTime=True&loc=Local
