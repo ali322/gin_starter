@@ -93,10 +93,12 @@ func (query *QueryRole) Find() ([]dao.Role, int64, error) {
 		where = append(where, []interface{}{"name LIKE ?", fmt.Sprintf("%%%s%%", query.Key)})
 	}
 	if query.IsDefault != nil {
-		where = append(where, []interface{}{"is_default = ?", query.IsDefault})
+		isDefault := *query.IsDefault == 1
+		where = append(where, []interface{}{"is_default = ?", isDefault})
 	}
 	if query.IsActived != nil {
-		where = append(where, []interface{}{"is_actived = ?", query.IsActived})
+		isActived := *query.IsActived == 1
+		where = append(where, []interface{}{"is_actived = ?", isActived})
 	}
 	return dao.FindAndCountRoles(map[string]interface{}{
 		"where":   where,

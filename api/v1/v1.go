@@ -30,7 +30,7 @@ func ApplyRoutes(r *gin.RouterGroup) {
 		v1.PUT("user/:id", updateUser)
 		v1.DELETE("user/:id", deleteUser)
 		v1.POST("active/user", activeUser)
-		v1.DELETE("active/user", deactiveUser)
+		v1.POST("deactive/user", deactiveUser)
 		v1.GET("me", me)
 
 		v1.POST("follow/user", follow)

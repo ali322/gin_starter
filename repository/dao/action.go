@@ -10,7 +10,7 @@ import (
 type Action struct {
 	BaseModel
 	ID          string          `gorm:"size:100;not null;primaryKey" json:"id"`
-	Name        string          `gorm:"size:200;uniqueIndex;not null" json:"name"`
+	Name        string          `gorm:"size:200;not null" json:"name"`
 	Description string          `gorm:"type:text" json:"description"`
 	Value       string          `gorm:"type:text" json:"value"`
 	CategoryID  uint            `form:"categoryID" json:"categoryID"`
