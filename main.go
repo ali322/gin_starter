@@ -22,11 +22,13 @@ import (
 )
 
 func setupApp() *gin.Engine {
-	logger := lib.NewLogger(filepath.Join(config.App.LogDir, "app.log"))
-	defer logger.Sync()
+	apiLogger := lib.NewLogger(filepath.Join(config.App.LogDir, "api.log"))
+	appLogger := lib.NewLogger(filepath.Join(config.App.LogDir, "app.log"))
+	defer apiLogger.Sync()
+	defer appLogger.Sync()
 	app := gin.New()
-	app.Use(middleware.Logger(logger))
-	app.Use(middleware.Recovery(logger))
+	app.Use(middleware.Logger(apiLogger))
+	app.Use(middleware.Recovery(appLogger))
 	app.Use(middleware.Error())
 	app.Use(middleware.Cors())
 	lib.InitTranslator(config.App.Locale)
